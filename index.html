@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bolivar Construction Corp</title>
+<meta name="description" content="Bolivar Construction Corp — our new website is on its way.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1F3864;
+    --ink:#10192B;
+    --gold:#E8A33D;
+    --paper:#EFE9DD;
+    --text-soft:#4B5568;
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    background: var(--ink);
+    background-image:
+      linear-gradient(#1c2740 1px, transparent 1px),
+      linear-gradient(90deg, #1c2740 1px, transparent 1px);
+    background-size: 56px 56px;
+    font-family:'IBM Plex Sans', sans-serif;
+    color: var(--paper);
+    text-align:center;
+    padding: 24px;
+  }
+  .eyebrow{
+    font-size:13px; letter-spacing:.08em; text-transform:uppercase;
+    color: var(--gold); margin-bottom: 18px;
+  }
+  h1{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    font-size: clamp(30px, 6vw, 52px);
+    margin: 0 0 16px;
+    color: #FDFBF7;
+  }
+  p.lede{
+    font-size: 17px;
+    color: #B9C2D6;
+    max-width: 46ch;
+    margin: 0 auto 32px;
+    line-height:1.6;
+  }
+  .divider{
+    width:56px; height:3px; background: var(--gold);
+    margin: 0 auto 32px; border-radius:2px;
+  }
+  .contact{
+    font-size: 14px;
+    color: #8894AC;
+  }
+  .contact a{ color: var(--gold); text-decoration:none; }
+  .contact a:hover{ text-decoration:underline; }
+  footer{
+    position:absolute; bottom:20px;
+    font-size:12px; color:#5C6884;
+  }
+</style>
+</head>
+<body>
+  <p class="eyebrow">Bolivar Construction Corp</p>
+  <div class="divider"></div>
+  <h1>Our new website<br>is on its way.</h1>
+  <p class="lede">We're building something new to show you our work. In the meantime, reach out directly — we're still here and ready to help.</p>
+  <p class="contact">Questions? <a href="mailto:info@bolivarconstructioncorp.com">info@bolivarconstructioncorp.com</a></p>
+  <footer>Bolivar Construction Corp</footer>
+</body>
+</html>
