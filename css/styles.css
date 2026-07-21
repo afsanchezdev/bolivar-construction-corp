@@ -23,9 +23,10 @@
 }
 
 *{ box-sizing: border-box; }
-html{ scroll-behavior: smooth; }
+html{ scroll-behavior: smooth; overflow-x:hidden; }
 body{
   margin:0;
+  overflow-x:hidden;
   font-family: var(--font-body);
   color: var(--text);
   background: var(--paper);
@@ -351,6 +352,8 @@ p{ margin:0; }
     transition:.35s;
 }
 .portfolio-item:hover span{background:var(--red); color:white;}
+
+.swipe-hint{ display:none; }
 
 /* Team */
 .team{ background: var(--ink); }
@@ -734,6 +737,45 @@ p{ margin:0; }
 
     /* ===== Recent Projects Slider ===== */
 
+    .portfolio .wrap{
+        padding-left:0;
+        padding-right:0;
+    }
+
+    .portfolio .wrap > p,
+    .portfolio .wrap > h2{
+        padding:0 24px;
+    }
+
+    .swipe-hint{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        gap:10px;
+        margin:14px 24px 20px;
+        padding:8px 14px;
+        font-family:var(--font-mono);
+        font-size:12px;
+        letter-spacing:.03em;
+        color:var(--red);
+        text-transform:uppercase;
+        opacity:.85;
+    }
+
+    .swipe-hint i{
+        font-size:11px;
+        animation:swipeNudge 1.6s ease-in-out infinite;
+    }
+
+    .swipe-hint i:first-child{
+        animation-direction:reverse;
+    }
+
+    @keyframes swipeNudge{
+        0%, 100%{ transform:translateX(0); opacity:.6; }
+        50%{ transform:translateX(-4px); opacity:1; }
+    }
+
     .portfolio-grid{
 
         display:flex;
@@ -746,7 +788,10 @@ p{ margin:0; }
 
         overflow-y:hidden;
 
+        overscroll-behavior-x:contain;
+
         scroll-snap-type:x mandatory;
+        scroll-snap-stop:always;
 
         scroll-padding:24px;
 
@@ -786,7 +831,7 @@ p{ margin:0; }
 
 }
 
-@media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }
+@media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } .swipe-hint i{ animation:none; } }
 
 @media (max-width:768px){
 
