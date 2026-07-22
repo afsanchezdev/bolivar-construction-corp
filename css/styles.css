@@ -204,7 +204,7 @@ p{ margin:0; }
 .concept-caption p:last-child{ color: #9A9A9A; font-size: 13px; font-family: var(--font-mono); }
 
 /* Sections */
-.section{ position:relative; z-index:1; padding: 40px 0; }
+.section{ position:relative; z-index:1; padding: 84px 0; }
 .section h2{ font-size: clamp(26px, 3vw, 36px); margin-bottom: 32px; max-width: 24ch; }
 
 /* About */
@@ -279,6 +279,7 @@ p{ margin:0; }
 .specialized-list{
     display:grid;
     grid-template-columns:repeat(2,1fr);
+    align-items:start;
     gap:12px;
 }
 
@@ -642,7 +643,7 @@ p{ margin:0; }
 /* CTA */
 .cta-section{
     background:var(--red);
-    padding:25px 0;
+    padding:50px 0;
     border-bottom:
     1px solid rgba(255,255,255,.15);
 }
