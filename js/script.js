@@ -329,6 +329,70 @@ if (portfolioButtons.length && portfolioDetail) {
 
 }
 
+// ===============================
+// Modal de confirmación (mensaje enviado)
+// ===============================
+
+const formSuccessModal = document.getElementById("formSuccessModal");
+const formSuccessBackdrop = document.getElementById("formSuccessBackdrop");
+const formSuccessClose = document.getElementById("formSuccessClose");
+const formSuccessOk = document.getElementById("formSuccessOk");
+const formSuccessText = document.getElementById("formSuccessText");
+
+function openFormSuccessModal(name) {
+
+    if (!formSuccessModal) return;
+
+    formSuccessText.textContent = name
+        ? `Thanks, ${name}. We'll be in touch soon.`
+        : "Thanks for reaching out. We'll be in touch soon.";
+
+    formSuccessModal.hidden = false;
+    formSuccessModal.style.height = window.innerHeight + "px";
+    lockBodyScroll();
+
+    if (formSuccessClose) {
+        formSuccessClose.focus({ preventScroll: true });
+    }
+
+}
+
+function closeFormSuccessModal() {
+
+    if (!formSuccessModal) return;
+
+    formSuccessModal.hidden = true;
+    unlockBodyScroll();
+
+}
+
+if (formSuccessModal) {
+
+    if (formSuccessClose) {
+        formSuccessClose.addEventListener("click", closeFormSuccessModal);
+    }
+
+    if (formSuccessBackdrop) {
+        formSuccessBackdrop.addEventListener("click", closeFormSuccessModal);
+    }
+
+    if (formSuccessOk) {
+        formSuccessOk.addEventListener("click", closeFormSuccessModal);
+    }
+
+    window.addEventListener("resize", () => {
+        if (!formSuccessModal.hidden) {
+            formSuccessModal.style.height = window.innerHeight + "px";
+        }
+    });
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !formSuccessModal.hidden) {
+            closeFormSuccessModal();
+        }
+    });
+
+}
 
 // ===============================
 // Formulario
@@ -372,10 +436,11 @@ if (form) {
 
             if (response.ok) {
 
-                formNote.textContent =
-                    `Thanks, ${name}. We'll be in touch soon.`;
+                formNote.textContent = "";
 
                 form.reset();
+
+                openFormSuccessModal(name)
 
             } else {
 
